@@ -146,6 +146,59 @@ function negatives(array) {
 }
 
 
-// Max/Min/Avg - Given an array with multiple values, write a function that returns a new array that only contains the maximum, minimum, and average values of the original array. (e.g. [1,5,10,-2] will return [10,-2,3.5])
-// Swap Values - Write a function that will swap the first and last values of any given array. The default minimum length of the array is 2. (e.g. [1,5,10,-2] will become [-2,5,10,1]).
-// Number to String - Write a function that takes an array of numbers and replaces any negative values within the array with the string 'Dojo'. For example if array = [-1,-3,2], your function will return ['Dojo','Dojo',2].
+// Max/Min/Avg - Given an array with multiple values, write a function that returns a new 
+//array that only contains the maximum, minimum, and average values of the original array.
+// (e.g. [1,5,10,-2] will return [10,-2,3.5])
+function maxMinAvg(array) {
+    var min = 99;
+    var max = 0;
+    var sum =0;
+    var count = array.length;
+    var newArr =[];
+     for (let i = 0; i < array.length; i++) {
+         sum += array[i];
+         if (array[i] < min) {
+             min = array[i];
+         } else if (array[i] > max) {
+             max = array[i];
+         }
+         
+     }
+     newArr.push(max);
+     newArr.push(min);
+     newArr.push(sum/count);
+
+     return newArr;
+
+}
+
+
+// console.log(maxMinAvg([1, 5, 10, -2]));
+
+// Swap Values - Write a function that will swap the first and last values of any given array.
+// The default minimum length of the array is 2. (e.g. [1,5,10,-2] will become [-2,5,10,1]).
+function swapValues(array) {
+    var firstNum = array[0];
+    var lastNum = array[array.length -1];
+    
+    console.log(lastNum);
+  array[0] = lastNum;
+    array[array.length-1] = firstNum;
+    return array;
+}
+// console.log(swapValues([1, 5, 10, -2]));
+
+// Number to String - Write a function that takes an array of numbers and replaces any negative values 
+//within the array with the string 'Dojo'. For example if array = [-1,-3,2], your function will return ['Dojo','Dojo',2].
+
+function numberToString(array) {
+    for (let i = 0; i < array.length; i++) {
+       if(array[i] < 0){
+           array[i] ="DOJO";
+       }
+        
+    }
+    return array;
+}
+
+// console.log(numberToString([-1,2,-3]));
